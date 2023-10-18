@@ -1,0 +1,28 @@
+Clara: Hola Soy Clara, compré un lavarropa en su tienda hace un mes y estoy teniendo problemas con él.
+
+Luciana: Hola clara, podrias pasarme tu DNI para poder buscar la compra.
+
+Clara: si por supuesto, mi DNI es 32274156
+
+Luciana: En seguida busco la compra
+
+Clara: perfecto, te paso mi celular, me lo pidieron a la hora de realizar la compra 3413332455. Quedo a la espera
+
+Luciana: Hola Clara, aca estoy de nuevo encontre tu compra. ¿Qué tipo de problema estás teniendo?
+
+Clara: Bueno, cuando pongo la ropa y elijo el programa de lavado, el lavarropa comienza a hacer un ruido extraño y no centrifuga correctamente.
+
+Luciana: ¡Qué raro! Normalmente nuestros lavarropas son revisados antes de ser vendidos. ¿Has revisado si algún objeto extraño podría estar atascando el tambor o si las patas del lavarropa están niveladas?
+
+Clara: Sí, lo he revisado y no parece haber nada en el tambor. Las patas también están niveladas. Es más, lo hice revisar con un técnico y me dijo que parece ser un problema interno.
+
+Luciana: Lo siento mucho por las molestias. Te propongo que nos traigas el lavarropa para que uno de nuestros técnicos especializados lo revise en nuestra tienda. Si es un defecto de fábrica, lo cubriremos bajo garantía.
+
+Clara: Eso suena bien. ¿Necesito algún comprobante de compra o la garantía?
+
+Luciana: Sí, si puedes traernos el recibo de compra sería ideal. Y si tienes el certificado de garantía también, aunque si no lo encuentras, con el recibo ya es suficiente.
+
+Clara: ¡Perfecto! Pasaré por la tienda mañana. ¡Gracias Luciana!
+
+Luciana: ¡De nada, Clara! Aquí estaremos para ayudarte. ¡Hasta mañana!
+
