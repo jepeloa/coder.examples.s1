@@ -1,0 +1,1602 @@
+2023-10-23 09:32:28 [INFO] Question: Cual es el pais con mejor calidad de vida
+2023-10-23 09:32:29 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:32:29 [INFO] Prompt ID: 6905cfbe-565d-4950-947b-366f83e0c910
+2023-10-23 09:32:29 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+</dataframe>
+
+<conversation>
+User 1: Cual es el pais con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:32:41 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Process
+    df = dfs[0]
+    
+    # Analyze
+    max_quality = df['Índice de calidad de vida'].max()
+    country_with_max_quality = df.loc[df['Índice de calidad de vida'] == max_quality, 'País'].values[0]
+    
+    result = f"El país con mejor calidad de vida es {country_with_max_quality}."
+    
+    return {"type": "string", "value": result}
+```
+
+2023-10-23 09:32:41 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    max_quality = df['Índice de calidad de vida'].max()
+    country_with_max_quality = df.loc[df['Índice de calidad de vida'] == max_quality, 'País'].values[0]
+    result = f'El país con mejor calidad de vida es {country_with_max_quality}.'
+    return {'type': 'string', 'value': result}
+        ```
+2023-10-23 09:32:41 [INFO] Answer: {'type': 'string', 'value': 'El país con mejor calidad de vida es Costa Rica.'}
+2023-10-23 09:32:41 [INFO] Executed in: 12.041208267211914s
+2023-10-23 09:36:54 [INFO] Question: Podes hacer un grafico de barras con los top 5 paises con mejor calidad de vida
+2023-10-23 09:36:54 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:36:54 [INFO] Prompt ID: 10543dfb-63f4-4e5f-a1d9-5435768ada4a
+2023-10-23 09:36:54 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Brasil,202175402,7.59
+Colombia,91106897,1.4
+Ecuador,15585653,0.66
+Argentina,283471250,7.92
+Chile,79191392,3.55
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de barras con los top 5 paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:37:10 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    plt.bar(top_5_countries['País'], top_5_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Top 5 países con mejor calidad de vida')
+    plt.xticks(rotation=45)
+    plt.savefig('temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:37:10 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    plt.bar(top_5_countries['País'], top_5_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Top 5 países con mejor calidad de vida')
+    plt.xticks(rotation=45)
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:37:10 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:37:10 [INFO] Executed in: 16.367180109024048s
+2023-10-23 09:37:26 [INFO] Question: Podes hacer un grafico de barras en plotly con los top 5 paises con mejor calidad de vida
+2023-10-23 09:37:26 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:37:26 [INFO] Prompt ID: eef5097f-e818-4e11-8543-33c775f00430
+2023-10-23 09:37:26 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de barras en plotly con los top 5 paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:37:40 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:37:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:37:40 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-23 09:37:40 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:37:40 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de barras en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:37:53 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:37:53 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-23 09:37:53 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:37:53 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de barras en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:38:07 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.bar(top_5_countries, x='País', y='Índice de calidad de vida', title='Top 5 países con mejor calidad de vida')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:40:30 [INFO] Question: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+2023-10-23 09:40:30 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:40:30 [INFO] Prompt ID: 3d5fcbc5-7771-4c09-ba9a-bad73b5a0db8
+2023-10-23 09:40:30 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Argentina,283471250,7.92
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:40:44 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:40:44 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:40:44 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-23 09:40:44 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:40:44 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Argentina,283471250,7.92
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:40:59 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:40:59 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-23 09:40:59 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:40:59 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Argentina,283471250,7.92
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:41:35 [INFO] Question: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+2023-10-23 09:41:35 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:41:35 [INFO] Prompt ID: 3aee161d-b822-404b-b5a7-33b572e84ad2
+2023-10-23 09:41:35 [INFO] Using cached response
+2023-10-23 09:41:35 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:41:35 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:41:35 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2023-10-23 09:41:35 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:41:35 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:41:50 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image('temp_chart.png')
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:41:50 [WARNING] Failed to execute code with a correction framework [retry number: 2]
+2023-10-23 09:41:50 [ERROR] Failed with error: Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+. Retrying
+2023-10-23 09:41:50 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames with the following metadata:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Colombia,91106897,1.4
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+</dataframe>
+
+The user asked the following question:
+User 1: Podes hacer un grafico de torta en plotly con los top 5 paises con mejor calidad de vida
+
+You generated this python code:
+# TODO import all the dependencies required
+import pandas as pd
+import plotly.express as px
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    fig = px.pie(top_5_countries, values='Índice de calidad de vida', names='País')
+    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig.write_image("temp_chart.png")
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 92, in import_dependency
+    module = importlib.import_module(name)
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'plotly'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/smart_datalake/__init__.py", line 337, in chat
+    result = self._code_manager.execute_code(
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 230, in execute_code
+    environment: dict = self._get_environment()
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 299, in _get_environment
+    **{
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/code_manager.py", line 301, in <dictcomp>
+    if hasattr(import_dependency(lib["module"]), lib["name"])
+  File "/home/jav/anaconda3/envs/openai/lib/python3.10/site-packages/pandasai/helpers/optional.py", line 95, in import_dependency
+    raise ImportError(msg) from exc
+ImportError: Missing optional dependency 'plotly.express'.  Use pip or conda to install plotly.express.
+
+
+Correct the python code and return a new python code that fixes the above mentioned error. Do not generate the same code again.
+
+2023-10-23 09:42:21 [INFO] Question: Podes hacer un grafico de torta con los top 5 paises con mejor calidad de vida
+2023-10-23 09:42:21 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:42:21 [INFO] Prompt ID: cbcc5571-453d-4a45-b30c-939d0b35e758
+2023-10-23 09:42:21 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+Colombia,91106897,1.4
+Argentina,283471250,7.92
+Brasil,202175402,7.59
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de torta con los top 5 paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:42:40 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    
+    # Analyze
+    labels = top_5_countries['País']
+    sizes = top_5_countries['Índice de calidad de vida']
+    
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    
+    # Save the chart to an image
+    chart_path = 'temp_chart.png'
+    plt.savefig(chart_path)
+    plt.close()
+    
+    return {"type": "plot", "value": chart_path}
+```
+
+2023-10-23 09:42:40 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    top_5_countries = df.nlargest(5, 'Índice de calidad de vida')
+    labels = top_5_countries['País']
+    sizes = top_5_countries['Índice de calidad de vida']
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')
+    chart_path = 'temp_chart.png'
+    plt.savefig(chart_path)
+    plt.close()
+    return {'type': 'plot', 'value': chart_path}
+        ```
+2023-10-23 09:42:40 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:42:40 [INFO] Executed in: 19.311638355255127s
+2023-10-23 09:45:28 [INFO] Question: Podes hacer un grafico de torta con los paises con mejor calidad de vida
+2023-10-23 09:45:28 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:45:28 [INFO] Prompt ID: 7f692377-3e16-4e68-a86b-934993854c96
+2023-10-23 09:45:28 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Brasil,202175402,7.59
+Chile,79191392,3.55
+Ecuador,15585653,0.66
+Colombia,91106897,1.4
+Argentina,283471250,7.92
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de torta con los paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:45:42 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    
+    # Analyze
+    labels = top_countries['País']
+    sizes = top_countries['Índice de calidad de vida']
+    
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+    plt.axis('equal')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:45:42 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    labels = top_countries['País']
+    sizes = top_countries['Índice de calidad de vida']
+    plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+    plt.axis('equal')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:45:42 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:45:42 [INFO] Executed in: 13.776245355606079s
