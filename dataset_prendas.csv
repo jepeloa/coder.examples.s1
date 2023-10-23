@@ -1,0 +1,31 @@
+Nombre_Cliente,Prenda,Precio,Descuento,Metodo_Pago,Precio_Final
+Carmen,Jeans,25.83,19,Efectivo,20.92
+Javier,Falda,94.43,29,Tarjeta Crédito,67.05
+María,Blusa,94.71,14,Tarjeta Débito,81.45
+Carlos,Vestido,47.31,17,Efectivo,39.27
+María,Corbata,93.92,17,Efectivo,77.95
+Javier,Falda,17.59,18,Transferencia,14.42
+María,Jeans,32.22,29,Transferencia,22.88
+Lucía,Falda,77.86,2,Efectivo,76.3
+Fernando,Jeans,48.73,19,Tarjeta Crédito,39.47
+María,Blusa,66.42,3,Tarjeta Débito,64.43
+Alejandro,Zapatos,99.14,5,Transferencia,94.18
+Teresa,Corbata,99.01,22,Efectivo,77.23
+María,Vestido,64.71,11,Efectivo,57.59
+Ana,Jeans,27.61,2,PayPal,27.06
+Teresa,Sombrero,63.3,26,Tarjeta Débito,46.84
+Fernando,Blusa,31.91,22,Transferencia,24.89
+Ana,Sombrero,54.83,0,Transferencia,54.83
+Alejandro,Sombrero,49.89,18,PayPal,40.91
+María,Corbata,23.56,0,Tarjeta Crédito,23.56
+Fernando,Jeans,85.51,3,Efectivo,82.94
+Juan,Vestido,16.58,4,PayPal,15.92
+María,Camiseta,42.68,5,Tarjeta Crédito,40.55
+Alejandro,Zapatos,52.76,4,Tarjeta Crédito,50.65
+Teresa,Jeans,32.84,2,Efectivo,32.18
+Carmen,Sudadera,92.09,13,Efectivo,80.12
+Javier,Jeans,38.37,5,Transferencia,36.45
+Carmen,Corbata,10.53,15,Tarjeta Crédito,8.95
+Ana,Corbata,38.65,14,Efectivo,33.24
+Lucía,Camiseta,50.15,30,Tarjeta Débito,35.1
+Fernando,Zapatos,98.28,2,Tarjeta Débito,96.31
