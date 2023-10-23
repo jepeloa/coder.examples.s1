@@ -1600,3 +1600,568 @@ def analyze_data(dfs: list[pd.DataFrame]) ->dict:
         ```
 2023-10-23 09:45:42 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
 2023-10-23 09:45:42 [INFO] Executed in: 13.776245355606079s
+2023-10-23 09:46:54 [INFO] Question: Podes hacer un grafico de torta con los paises con mejor calidad de vida, el grafico debe mostrar los valores numericos
+2023-10-23 09:46:54 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:46:54 [INFO] Prompt ID: c6dc5212-676b-40e7-af19-c5f96409233a
+2023-10-23 09:46:54 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Colombia,91106897,1.4
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de torta con los paises con mejor calidad de vida, el grafico debe mostrar los valores numericos
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:47:08 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    
+    # Analyze
+    labels = top_countries['País']
+    values = top_countries['Índice de calidad de vida']
+    
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels, autopct='%1.1f%%')
+    ax.set_title('Paises con mejor calidad de vida')
+    
+    plt.savefig('temp_chart.png')
+    plt.close(fig)
+    
+    return { "type": "plot", "value": "temp_chart.png" }
+```
+
+2023-10-23 09:47:08 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    labels = top_countries['País']
+    values = top_countries['Índice de calidad de vida']
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels, autopct='%1.1f%%')
+    ax.set_title('Paises con mejor calidad de vida')
+    plt.savefig('temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:47:08 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:47:08 [INFO] Executed in: 13.908432960510254s
+2023-10-23 09:47:28 [INFO] Question: Podes hacer un grafico de torta con los paises con mejor calidad de vida, el grafico debe mostrar los valores numericos, no porcentajes
+2023-10-23 09:47:28 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:47:28 [INFO] Prompt ID: f367f24e-dba9-411c-a51a-1ea44278e40f
+2023-10-23 09:47:28 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Brasil,202175402,7.59
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+Argentina,283471250,7.92
+Colombia,91106897,1.4
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de torta con los paises con mejor calidad de vida, el grafico debe mostrar los valores numericos, no porcentajes
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:47:43 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    
+    # Analyze
+    labels = top_countries['País']
+    values = top_countries['Índice de calidad de vida']
+    
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels, autopct='%1.0f%%')
+    ax.set_title('Paises con mejor calidad de vida')
+    
+    plt.savefig('temp_chart.png')
+    plt.close(fig)
+    
+    return { "type": "plot", "value": "temp_chart.png" }
+```
+
+2023-10-23 09:47:43 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    labels = top_countries['País']
+    values = top_countries['Índice de calidad de vida']
+    fig, ax = plt.subplots()
+    ax.pie(values, labels=labels, autopct='%1.0f%%')
+    ax.set_title('Paises con mejor calidad de vida')
+    plt.savefig('temp_chart.png')
+    plt.close(fig)
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:47:43 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:47:43 [INFO] Executed in: 14.867424011230469s
+2023-10-23 09:48:05 [INFO] Question: Podes hacer un grafico de barras con los paises con mejor calidad de vida
+2023-10-23 09:48:05 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:48:05 [INFO] Prompt ID: 3797025d-1cf5-4309-9a6f-e0b0308a7b2a
+2023-10-23 09:48:05 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Brasil,202175402,7.59
+Ecuador,15585653,0.66
+Colombia,91106897,1.4
+Argentina,283471250,7.92
+Chile,79191392,3.55
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico de barras con los paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:48:20 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    
+    # Analyze
+    plt.bar(top_countries['País'], top_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Paises con mejor calidad de vida')
+    plt.xticks(rotation=45)
+    plt.savefig('temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:48:20 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    plt.bar(top_countries['País'], top_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Paises con mejor calidad de vida')
+    plt.xticks(rotation=45)
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:48:20 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:48:20 [INFO] Executed in: 14.942392349243164s
+2023-10-23 09:49:37 [INFO] Question: Podes hacer un grafico tipo scatter con los paises con mejor calidad de vida
+2023-10-23 09:49:37 [INFO] Running PandasAI with openai LLM...
+2023-10-23 09:49:37 [INFO] Prompt ID: a12f016d-841f-4983-a698-d3b558b2c141
+2023-10-23 09:49:37 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Ecuador,15585653,0.66
+Chile,79191392,3.55
+Brasil,202175402,7.59
+Colombia,91106897,1.4
+Argentina,283471250,7.92
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico tipo scatter con los paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 09:49:56 [INFO] Code generated:
+```
+# TODO import all the dependencies required
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    # Prepare
+    df = dfs[0]
+    
+    # Process
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    
+    # Analyze
+    plt.scatter(top_countries['País'], top_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Paises con mejor calidad de vida')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    
+    return {"type": "plot", "value": "temp_chart.png"}
+```
+
+2023-10-23 09:49:57 [INFO] 
+Code running:
+```
+def analyze_data(dfs: list[pd.DataFrame]) ->dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+    df = dfs[0]
+    sorted_df = df.sort_values('Índice de calidad de vida', ascending=False)
+    top_countries = sorted_df.head(5)
+    plt.scatter(top_countries['País'], top_countries['Índice de calidad de vida'])
+    plt.xlabel('País')
+    plt.ylabel('Índice de calidad de vida')
+    plt.title('Paises con mejor calidad de vida')
+    plt.savefig('temp_chart.png')
+    plt.close()
+    return {'type': 'plot', 'value': 'temp_chart.png'}
+        ```
+2023-10-23 09:49:57 [INFO] Answer: {'type': 'plot', 'value': 'temp_chart.png'}
+2023-10-23 09:49:57 [INFO] Executed in: 19.513086318969727s
+2023-10-23 10:29:33 [INFO] Question: Podes hacer un grafico tipo scatter y unir las lineas con los paises con mejor calidad de vida
+2023-10-23 10:29:33 [INFO] Running PandasAI with openai LLM...
+2023-10-23 10:29:33 [INFO] Prompt ID: a40d1a65-2751-48e1-bb2a-f4507e64b383
+2023-10-23 10:29:33 [INFO] Using prompt: 
+You are provided with the following pandas DataFrames:
+
+<dataframe>
+Dataframe dfs[0], with 15 rows and 3 columns.
+This is the metadata of the dataframe dfs[0]:
+País,Cantidad de habitantes,Índice de calidad de vida
+Ecuador,15585653,0.66
+Brasil,202175402,7.59
+Argentina,283471250,7.92
+Chile,79191392,3.55
+Colombia,91106897,1.4
+</dataframe>
+
+<conversation>
+User 1: Podes hacer un grafico tipo scatter y unir las lineas con los paises con mejor calidad de vida
+</conversation>
+
+This is the initial python code to be updated:
+```python
+# TODO import all the dependencies required
+import pandas as pd
+
+def analyze_data(dfs: list[pd.DataFrame]) -> dict:
+    """
+    Analyze the data
+    1. Prepare: Preprocessing and cleaning data if necessary
+    2. Process: Manipulating data for analysis (grouping, filtering, aggregating, etc.)
+    3. Analyze: Conducting the actual analysis (if the user asks to plot a chart save it to an image in temp_chart.png and do not show the chart.)
+    At the end, return a dictionary of:
+    - type (possible values "string", "number", "dataframe", "plot")
+    - value (can be a string, a dataframe or the path of the plot, NOT a dictionary)
+    Examples: 
+        { "type": "string", "value": "The highest salary is $9,000." }
+        or
+        { "type": "number", "value": 125 }
+        or
+        { "type": "dataframe", "value": pd.DataFrame({...}) }
+        or
+        { "type": "plot", "value": "temp_chart.png" }
+    """
+```
+
+Using the provided dataframes (`dfs`), update the python code based on the last question in the conversation.
+
+Updated code:
+
+2023-10-23 10:29:33 [INFO] error_code=invalid_api_key error_message='Incorrect API key provided: sk-E9CzX***************************************7IsI. You can find your API key at https://platform.openai.com/account/api-keys.' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
